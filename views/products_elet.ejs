@@ -44,11 +44,11 @@
 <body class="grey darken-3">
     <nav class="nav-extended grey darken-4">
         <div class="nav-wrapper container ">
-          <a href="#" class="brand-logo">BodeStore</a>
+          <a href="/" class="brand-logo">BodeStore</a>
           <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a class="active" href="#">Produtos</a></li>
-            <li><a href="#">Carrinho</a></li>
+            <li><a href="/carrinho">Carrinho</a></li>
             <li><a href="#">Login | Sign up</a></li>
           </ul>
         </div>
@@ -92,7 +92,10 @@
                       <p><%= item.description %></p>
                     </div>
                     <div class="card-action">
-                      <p><a href="#">Comprar agora</a></p>
+                      <form action="/carrinho" method="post">
+                        <input type="hidden" name="Comprado" value="<%= item %>">
+                        <button class="btn" type="submit">Comprar agora!</button>
+                      </form>
                     </div>
                   </div>
             </li>

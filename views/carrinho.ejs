@@ -41,42 +41,39 @@
 
     <title>Document</title>
 </head>
-<body class="grey darken-3">
+<body>
     <nav class="nav-extended grey darken-4">
         <div class="nav-wrapper container ">
-          <a href="/" class="brand-logo">BodeStore</a>
-          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="active" href="#">Produtos</a></li>
-            <li><a href="/carrinho">Carrinho</a></li>
-            <li><a href="#">Login | Sign up</a></li>
-          </ul>
+            <a href="/" class="brand-logo">BodeStore</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="active" href="#">Produtos</a></li>
+                <li><a href="/carrinho">Carrinho</a></li>
+                <li><a href="#">Login | Sign up</a></li>
+            </ul>
         </div>
         <div class="nav-content">
-          <ul class="tabs tabs-transparent container">
-            <li class="tab">
-              <a href="/">Tudo</a>
-            </li>
-            <li class="tab">
-              <a  href="/eletronicos">Eletronicos</a>
-            </li>
-            <li class="tab">
-              <a class="active" href="/joias">Joias</a>
-            </li>
-            <li class="tab">
-              <a href="/vestuario">Vestuario</a>
-            </li>
-          </ul>
+            <ul class="tabs tabs-transparent container">
+                <li class="tab">
+                    <a href="/">Tudo</a>
+                </li>
+                <li class="tab">
+                    <a href="/eletronicos">Eletronicos</a>
+                </li>
+                <li class="tab">
+                    <a href="/joias">Joias</a>
+                </li>
+                <li class="tab">
+                    <a class="active" href="/vestuario">Vestuario</a>
+                </li>
+            </ul>
         </div>
-      </nav>
-    
-      <ul class="sidenav" id="mobile-demo">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    <ul class="lista">
-        <% products_jew.forEach( item => { %>
+    </nav>
+    <!-- Carrinho -->
+    <h1>Carrinho de Produtos</h1>
+    <ul>
+        <% cart.forEach( item => { %>
+
             <li>
 
                 <div class="card grey darken-4">
@@ -92,15 +89,17 @@
                       <p><%= item.description %></p>
                     </div>
                     <div class="card-action">
-                      <form action="/carrinho" method="post">
-                        <input type="hidden" name="Comprado" value="<%= item %>">
-                        <button class="btn" type="submit">Comprar agora!</button>
+                      <form action="/remover" method="post">
+                        <input type="hidden" name="removido" value="<%= item.id %>">
+                        <button class="btn" type="submit">Excluir do carrinho</button>
+
                       </form>
                     </div>
                   </div>
             </li>
-
+        
         <% }) %>
     </ul>
 </body>
+
 </html>
