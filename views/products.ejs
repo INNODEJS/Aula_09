@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        .card {
+            width: 450px;
+            height: 550px;
+        }
+        .lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .card-image img {
+            max-width: 250px;
+            max-height: 250px;
+        }
+        .card-image {
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card-content{
+            height: 180px;
+
+        }
+    </style>
+
+    <title>Document</title>
+</head>
+<body class="grey darken-3">
+    <nav class="nav-extended grey darken-4">
+        <div class="nav-wrapper container ">
+          <a href="#" class="brand-logo">BodeStore</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="active" href="#">Produtos</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Login | Sign up</a></li>
+          </ul>
+        </div>
+        <div class="nav-content">
+          <ul class="tabs tabs-transparent container">
+            <li class="tab">
+              <a class="active" href="/">Tudo</a>
+            </li>
+            <li class="tab">
+              <a class="#" href="/eletronicos">Eletronicos</a>
+            </li>
+            <li class="tab">
+              <a href="/joias">Joias</a>
+            </li>
+            <li class="tab">
+              <a href="/vestuario">Vestuario</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    <ul class="lista">
+        <% products.forEach( item => { %>
+            <li>
+
+                <div class="card grey darken-4">
+                    <div class="card-image waves-effect waves-block waves-light">
+                      <img class="activator" src="<%= item.image %>">
+                    </div>
+                    <div class="card-content">
+                      <span class="card-title activator white-text text-darken-4" ><%= item.title %><i class="material-icons right">more_vert</i></span>
+                      <p class="white-text"><%= item.price %></p>
+                    </div>
+                    <div class="card-reveal">
+                      <span class="card-title white-text text-darken-4"><%= item.title %><i class="material-icons right">close</i></span>
+                      <p><%= item.description %></p>
+                    </div>
+                    <div class="card-action">
+                      <p><a href="#">Comprar agora</a></p>
+                    </div>
+                  </div>
+            </li>
+
+        <% }) %>
+    </ul>
+</body>
+</html>
